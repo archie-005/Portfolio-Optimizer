@@ -85,13 +85,13 @@ def main():
         return
 
     assets = read_assets(args.csv)
-    print("Assets loaded:", assets)  # Add this line
+    print("Assets loaded:", assets)
 
     selected = knapsack(assets, args.capital)
-    print("After knapsack:", selected)  # Add this line
+    print("After knapsack:", selected) 
 
     selected = apply_risk_filter(selected, args.risk)
-    print("After risk filter:", selected)  # Add this line
+    print("After risk filter:", selected) 
 
     total_cost = sum(a['Price'] for a in selected)
     total_return = sum(a['ExpectedReturn'] * a['Price'] for a in selected) / args.capital * 100 if args.capital > 0 else 0
